@@ -17,7 +17,6 @@ import refactorings.wewlc.undetectablesideeffect.externals.WindowListener;
 public class AccountDetailFrame extends Frame
     implements ActionListener, WindowListener {
   private TextField display = new TextField(10);
-  private DetailFrame detailDisplay;
 
   public AccountDetailFrame() {
 
@@ -26,7 +25,7 @@ public class AccountDetailFrame extends Frame
   public void actionPerformed(ActionEvent event) {
     String source = (String) event.getActionCommand();
     if (source.equals("project activity")) {
-      detailDisplay = new DetailFrame();
+      DetailFrame detailDisplay = new DetailFrame();
       detailDisplay.setDescription(
           getDetailText() + " " + getProjectionText());
       detailDisplay.show();
