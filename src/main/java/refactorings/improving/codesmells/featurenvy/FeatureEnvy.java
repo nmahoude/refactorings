@@ -17,6 +17,9 @@ public class FeatureEnvy {
   WantToBe wannaBe = new WantToBe();
   
   /* move wannaBe use in wannaBe ...
+   * 
+   * let's say the code dealing with wannaBe represents the behavoir of wannaBe.currentRatio()
+   * 
    */
   public int calculate() {
     return intern * (
