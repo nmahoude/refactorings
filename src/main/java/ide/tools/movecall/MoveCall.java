@@ -11,6 +11,7 @@ import ide.tools.movecall.supportpackage.Receiving;
  */
 public class MoveCall {
 	Receiving receiving = new Receiving();
+	private int total;
 	
 	public static void main(String[] args) {
 		MoveCall moveCall = new MoveCall();
@@ -25,10 +26,13 @@ public class MoveCall {
 	/**
 	 * this method need to move into Receiving with the use of refactorings
 	 * 
-	 * what we want is using : receiving.add(object); with same effects !  
-	 * @param object
+	 * what we want is using : receiving.add(object); with same effects !
+	 * 
+	 * And don't touch this.total++ !
+	 * 
 	 */
 	public void addToReceiving(Object object) {
 		receiving.getList().add(object);
+		this.total++;
 	}
 }
