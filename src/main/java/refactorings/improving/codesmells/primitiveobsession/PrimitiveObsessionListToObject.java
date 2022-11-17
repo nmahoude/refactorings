@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  *  @see Extract class
  *  @see Introduce parameter object
  */
-public class PrimitiveObsessionLisstToObject {
+public class PrimitiveObsessionListToObject {
   String username;
 
   /*
@@ -45,7 +45,7 @@ public class PrimitiveObsessionLisstToObject {
   
   
   public static void main(String[] args) {
-		var case1 = new PrimitiveObsessionLisstToObject();
+		var case1 = new PrimitiveObsessionListToObject();
 		case1.setUserName("All_very_good");
 		System.out.println(case1.username);
 
@@ -54,7 +54,7 @@ public class PrimitiveObsessionLisstToObject {
 		 * 
 		 * So the PrimitiveObsessionToObject accept an Username object and be sure he is valid
 		 * **/
-		var case2 = new PrimitiveObsessionLisstToObject();
+		var case2 = new PrimitiveObsessionListToObject();
 		case2.setUserName("ooopps a space");
 		
 		
