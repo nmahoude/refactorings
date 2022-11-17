@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
  *  Example :
  *  A string is not a good container for a username when there is domain rules to apply
  *  
+ *  In this exercice, replace the String with an Object that contains the rules
+ *  
  *  Refactorings:
  *  @see Replace primitive with object
  *  @see Replace type code with subclasses
@@ -15,7 +17,7 @@ import java.util.stream.Collectors;
  *  @see Extract class
  *  @see Introduce parameter object
  */
-public class PrimitiveObsession {
+public class PrimitiveObsessionToObject {
   String username;
 
   /*
@@ -28,6 +30,7 @@ public class PrimitiveObsession {
     if (username.isEmpty()) {
       throw new RuntimeException("bad user name"); 
     }
+    this.username = username;
   }
 
   /**
@@ -40,4 +43,22 @@ public class PrimitiveObsession {
                 .collect(Collectors.toList());
   }
   
+  
+  public static void main(String[] args) {
+		var case1 = new PrimitiveObsessionToObject();
+		case1.setUserName("All_very_good");
+		System.out.println(case1.username);
+
+		/** 
+		 * This one throw, we dont want to handle the check in our PrimitiveObsessionToObject, but inside the Username Object 
+		 * 
+		 * So the PrimitiveObsessionToObject accept an Username object and be sure he is valid
+		 * **/
+		var case2 = new PrimitiveObsessionToObject();
+		case2.setUserName("ooopps a space");
+		
+		
+		
+		
+	}
 }
