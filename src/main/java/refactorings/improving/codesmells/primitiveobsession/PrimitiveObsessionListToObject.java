@@ -1,14 +1,15 @@
 package refactorings.improving.codesmells.primitiveobsession;
 
+import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  *
  *  Example :
- *  A string is not a good container for a username when there is domain rules to apply
+ *  A List is not a good container for something that has always 2 elements
  *  
- *  In this exercice, replace the String with an Object that contains the rules
+ *  In this exercice, replace the List with an Object that represents the values
  *  
  *  Refactorings:
  *  @see Replace primitive with object
@@ -18,47 +19,25 @@ import java.util.stream.Collectors;
  *  @see Introduce parameter object
  */
 public class PrimitiveObsessionListToObject {
-  String username;
 
-  /*
-   * insert a Username object
-   */
-  public void setUserName(String username) {
-    if (username.contains(" ")) {
-      throw new RuntimeException("bad user name"); 
-    }
-    if (username.isEmpty()) {
-      throw new RuntimeException("bad user name"); 
-    }
-    this.username = username;
-  }
-
-  /**
-   * extract an Order class/object
-   */
-  public List<String> filterOrders(List<String> orders) {
-    
-    return orders.stream()
-                .filter(o -> o.equals("high") || o.equals("very high"))
-                .collect(Collectors.toList());
-  }
-  
-  
   public static void main(String[] args) {
-		var case1 = new PrimitiveObsessionListToObject();
-		case1.setUserName("All_very_good");
-		System.out.println(case1.username);
-
-		/** 
-		 * This one throw, we dont want to handle the check in our PrimitiveObsessionToObject, but inside the Username Object 
-		 * 
-		 * So the PrimitiveObsessionToObject accept an Username object and be sure he is valid
-		 * **/
-		var case2 = new PrimitiveObsessionListToObject();
-		case2.setUserName("ooopps a space");
-		
-		
-		
-		
+  	List<LocalDate> dates = getPeriodInfo();
+  	
+  	LocalDate now = LocalDate.now();
+  	if (dates.size() >= 2 
+  			&& dates.get(0) != null 
+  			&& dates.get(1) != null 
+  			&& dates.get(0).isBefore(now) 
+  			&& dates.get(1).isAfter(now)) {
+  		System.out.println("Inside !");
+  	}
+  	
+  	
 	}
+  
+  /** Should return an object, can you find what the list represents ? */  
+  private static List<LocalDate> getPeriodInfo() {
+  	return Arrays.asList(LocalDate.of(1, 1, 1), LocalDate.of(10000, 10, 10));
+	}
+
 }
