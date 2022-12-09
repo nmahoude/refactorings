@@ -7,15 +7,16 @@ public class IntroduceParameter {
 	static List<String> list = new ArrayList<>();
 	
 	public static void main(String[] args) {
-		new IntroduceParameter().use();
+		new IntroduceParameter().use("World");
+		new IntroduceParameter().use("Mars");
 	}
 	
 	/**
-	 * push the list as a parameter of this method
+	 * push "Hello" as a parameter of this method
 	 * 
 	 * this should change the call in main at the same time
 	 */
-	public void use() {
-		list.add("Hello ! ");
+	public void use(String whom) {
+		list.add("Hello "+whom+" !");
 	}
 }
