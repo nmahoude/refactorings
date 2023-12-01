@@ -22,7 +22,7 @@ package refactorings.minikatas.money;
  * 	 . Introduce a price value object to encapsulate the price & currency in the product
  * 	 
  *   . The code and test need the MoneyService to convert money. we will remove this dependency !
- * 	 		. Introduce a PriceConverter (value) Object that the MoneyService will return and do the job of converting price to/from different currency
+ * 	 		. Introduce a ConversionRate (value) Object that the MoneyService will return and do the job of converting price to/from different currency
  * 	 		. Ensure the converter check for correct "from" currency when converting
  *      . then use this object to convert a price to another currency, now you don't need to mock the MoneyService in your test
  * 	 
